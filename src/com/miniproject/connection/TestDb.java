@@ -15,7 +15,7 @@ public class TestDb {
 		Date last_update = new Date();
 		
 		Actor a= new Actor();
-		a.setActor_id(202);
+		a.setActor_id(205);
 		a.setFirst_name("Mallik");
 		a.setLast_name("Dhupagutnla");
 		a.setLast_update(null);
@@ -27,5 +27,12 @@ public class TestDb {
 		
 		db.selectQuery("select * from sakila.Actor where actor_id ="+a.getActor_id());
 		
+		db.updateQuery("Delete from sakila.actor where actor_id =201");
+		
+		db.selectQuery("select * from sakila.Actor where actor_id =201");
+		
+		db.updateQuery("Update sakila.actor set first_name = 'mallikharjuna' where actor_id = "+a.getActor_id());
+		db.selectQuery("select * from sakila.Actor where actor_id ="+a.getActor_id());
+
 	}
 }
